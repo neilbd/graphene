@@ -68,6 +68,7 @@ manifest: manifest.template
 
 clean: $(clean-extra) $(if $(level),,clean-subdirs)
 	rm -rf pal_loader $(call expand_target,$(exec_target)) $(target)
+	rm -rf *.manifest.sgx *.sig *.token
 
 build-subdirs:
 	for f in $(subdirs); do (cd $$f; $(MAKE); cd ..); done

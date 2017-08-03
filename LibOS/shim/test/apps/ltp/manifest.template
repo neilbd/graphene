@@ -2,6 +2,14 @@ loader.preload = file:$(SHIMPATH)
 loader.env.LD_LIBRARY_PATH = /lib:/lib64:/usr/lib:/usr/lib64
 loader.debug_type = none
 
+fs.mount.tmp1.type = chroot
+fs.mount.tmp1.path = /tmp
+fs.mount.tmp1.uri = file:/tmp
+
+fs.mount.shm.type = chroot
+fs.mount.shm.path = /dev/shm
+fs.mount.shm.uri = file:/dev/shm
+
 fs.mount.lib.type = chroot
 fs.mount.lib.path = /lib
 fs.mount.lib.uri = file:$(LIBCDIR)
@@ -13,8 +21,6 @@ fs.mount.usr.uri = file:/usr
 sys.brk.size = 32M
 sys.stack.size = 4M
 
-sgx.trusted_files.ld = file:$(LIBCDIR)/ld-linux-x86-64.so.2
-sgx.trusted_files.libc = file:$(LIBCDIR)/libc.so.6
-sgx.trusted_files.libdl = file:$(LIBCDIR)/libdl.so.2
-sgx.trusted_files.libm = file:$(LIBCDIR)/libm.so.6
-sgx.trusted_files.libpthread = file:$(LIBCDIR)/libpthread.so.0
+sgx.search_trusted_libs.libc = file:$(LIBCDIR)
+
+sgx.allowed_files.tmp = file:/tmp
