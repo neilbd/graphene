@@ -122,7 +122,6 @@ if True:
     for bin in link_binaries:
         if os.path.lexists(installDir + '/' + bin):
             os.unlink(installDir + '/' + bin)
-            continue
 
         print installDir + '/' + bin + ' -> ' + buildDir + '/lib/libc.so'
         os.symlink(os.path.relpath(buildDir + '/lib/libc.so', installDir), installDir + '/' + bin)
