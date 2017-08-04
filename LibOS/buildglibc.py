@@ -139,6 +139,7 @@ if True:
 
     for (dir, bin) in link_binaries:
         if os.path.lexists(installDir + '/' + bin):
+            os.unlink(installDir + '/' + bin)
             continue
 
         print installDir + '/' + bin + ' -> ' + buildDir + '/' + dir + '/' + bin

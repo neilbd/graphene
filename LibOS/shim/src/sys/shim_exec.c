@@ -69,8 +69,6 @@ static const char ** new_argp;
 static int           new_argc;
 static elf_auxv_t *  new_auxp;
 
-#define REQUIRED_ELF_AUXV       6
-
 int shim_do_execve_rtld (struct shim_handle * hdl, const char ** argv,
                          const char ** envp)
 {

@@ -4,6 +4,8 @@
 #ifndef _SHIM_DEFS_H_
 #define _SHIM_DEFS_H_
 
+#define REQUIRED_ELF_AUXV           7
+
 #define MIGRATE_MORE_GIPC           0
 
 #define HASH_GIPC                   0

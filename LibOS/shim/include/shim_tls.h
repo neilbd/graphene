@@ -9,9 +9,9 @@
 #define SHIM_TLS_CANARY $xdeadbeef
 
 #if defined(__x86_64__)
-# define SHIM_TCB_OFFSET    80
+# define SHIM_TCB_OFFSET    48
 #else
-# define SHIM_TCB_OFFSET    44
+# define SHIM_TCB_OFFSET    24
 #endif
 
 #else /* !__ASSEMBLER__ */
@@ -79,12 +79,10 @@ typedef struct {
 
 typedef struct
 {
-    void *                  tcb, * dtv, * self;
-    int                     mthreads, gscope;
-    uintptr_t               sysinfo, sg, pg;
-    unsigned long int       vgetcpu_cache[2];
-    int                     __unused1;
-    shim_tcb_t              shim_tcb;
+    void * tcb, * dtv, * self;
+    uintptr_t   sysinfo;
+    uintptr_t   guard1, guard2;
+    shim_tcb_t  shim_tcb;
 } __libc_tcb_t;
 
 #include <stddef.h>
